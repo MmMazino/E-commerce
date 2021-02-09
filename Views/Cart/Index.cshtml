@@ -1,0 +1,99 @@
+﻿<header>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <a asp-controller="Home" asp-action="Index"><img src="~/pic/Logo.png" width="100px" height="100px" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Meat">Meat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Vegetable">Vegetable</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="Index">Cart</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="navbar-right m-1">
+                <form asp-controller="Home" asp-action="SearchProduct">
+                    <input type="text" name="CheckSearch" />
+                    <button type="submit" class="btn btn-success">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Cart</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col" style="width:450px">Image</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (TblCart item in (List<TblCart>)ViewBag.cart)
+            {
+                <tr>
+                    <th scope="row">@item.GetProduct().ProductName</th>
+                    <td><img src="~/pic/@item.GetProduct().ProductImage" style="max-width:25%;max-height:25%" /></td>
+                    <td>@item.Quantity</td>
+                    <td>@item.GetProduct().Price</td>
+                    <td></td>
+                    <td class="m-2">
+                        <a asp-controller="cart" asp-action="increase" asp-route-id="@item.CartId" style="color:green"><i class="fa fa-plus fa-2x"></i></a>
+                        <a asp-controller="cart" asp-action="decrease" asp-route-id="@item.CartId" style="color:red"><i class="fa fa-minus fa-2x"></i></a>
+                        <a asp-controller="cart" asp-action="Remove" asp-route-id="@item.CartId" style="color:black"><i class="fa fa-trash fa-2x"></i></a>
+                    </td>
+                </tr>
+            }
+            <tr>
+                <th>GRAND TOTAL</th>
+                <td colspan="3"></td>
+                <th> @ViewBag.total บาท</th>
+                <th></th>
+            </tr>
+            <tr>
+                <th scope="row" colspan="2">
+                    <form asp-controller="home" asp-action="index">
+                        <button type="submit" class="btn btn-success">CONTINUE TO SHOP</button>
+                    </form>
+                </th>
+                <td colspan="2"></td>
+                <td colspan="1">
+                    <form asp-controller="Cart" asp-action="RemoveAll">
+                        <button type="submit" class="btn btn-success">Clear List</button>
+                    </form>
+                </td>
+                <td colspan="2">
+                    <form asp-controller="checkout" asp-action="index">
+                        <button type="submit" class="btn btn-success">PROCEED TO CHECKOUT</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,99 @@
+﻿@{
+    string[] label = ViewBag.label;
+    int[] data = ViewBag.data;
+    //Layout = null;
+}
+@*<!DOCTYPE HTML>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name=" viewport" content="width=device-width,initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title><?php echo $title?></title>
+        <link rel="stylesheet" href="../bootstrap-4.3.1/css/bootstrap.min.css">
+        <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="../bootstrap-4.3.1/js/bootstrap.js"></script>
+        <script src="../chartJS/Chart.js"></script>
+        <script src="../chartJS/chartjs--plugin-datalabels.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <canvas id="myChart"style="position : relative; height:60pt; width:120pt"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script>
+        var options = {
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: { display: false, position: "bottom" },
+            scales: { yAxes: [{ ticks: { beginAtZero: true } }] },
+            title: { display: true, position: "top", text: "Bar ChartExample" },
+        };
+        var datal = {
+            labels: ["2558", "2559", "2560", "2561", "2562"],
+            datasets: [{
+                label: '#Legend',
+                data: [25, 32, 29, 30, 28],
+                backgroundColor: 'red',
+                borderColor: 'black',
+                borderWidth: 1
+            }]
+        };
+        var ctx = document.getElementById("myChart");
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: datal,
+            options: options
+        });
+
+    </script>
+    </body>
+    </html>*@
+
+@*<!DOCTYPE HTML>
+    <html>
+    <head>
+        <script>
+    window.onload = function () {
+
+    var result = @Html.Raw(ViewBag.dataSource);
+    var dataPoints =[];
+    for(var i = 0; i < result.length; i++){
+        dataPoints.push({x:result[i].x, y:result[i].y});
+    }
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        title: {
+            text: "ASP.NET MVC Column Chart from Database"
+        },
+        data: [
+        {
+            type: "column",
+            dataPoints: dataPoints,
+        }
+        ]
+    });
+    chart.render();
+
+    };
+        </script>
+    </head>
+    <body>
+        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+        <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    </body>
+    </html>*@
+
+@*@Html.EJS().Chart("container").Series(series =>
+{
+    series.Type(Syncfusion.EJ2.Charts.ChartSeriesType.Bar).XName("x").YName("y").
+    DataSource(ViewBag.dataSource).Add();
+}).PrimaryXAxis(px => px.ValueType(Syncfusion.EJ2.Charts.ValueType.Category)).Render();*@

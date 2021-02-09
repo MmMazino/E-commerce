@@ -1,0 +1,93 @@
+﻿<header>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <a asp-controller="Home" asp-action="Index"><img src="~/pic/Logo.png" width="100px" height="100px" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Meat">Meat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Vegetable">Vegetable</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="Index">Cart</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="navbar-right m-1">
+                <form asp-controller="Home" asp-action="SearchProduct">
+                    <input type="text" name="CheckSearch" />
+                    <button type="submit" class="btn btn-success">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Meat</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-3 col-sm-6 col-xs-12 mb-4 m-2 ml-2">
+                <div class="card" style="width: 18rem;background-color: #f4eee5;color: #7e5738;">
+                    <img src="/pic/Ann.jpg" class="card-img-top img-fluid" style="width: 286px;height:286px">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Supisara Ninnampetch</h5>
+                        <p>Designer-Web</p>
+                        <p></p>
+                        <a href="https://www.facebook.com/supisara.ann"><i class="fa fa-facebook-square fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 mb-4 m-2 ml-2">
+                <div class="card" style="width: 18rem;background-color: #f4eee5;color: #7e5738;">
+                    <img src="/pic/Mag.jpg" class="card-img-top img-fluid" style="width: 286px;height:286px">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Thanapit Srisupa</h5>
+                        <p>CEO</p>
+                        <p></p>
+                        <a href="https://www.facebook.com/MaGMazino"><i class="fa fa-facebook-square fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 mb-4 m-2 ml-2">
+                <div class="card" style="width: 18rem;background-color: #f4eee5;color: #7e5738;">
+                    <img src="/pic/Patch.jpg" class="card-img-top img-fluid" style="width: 286px;height:286px">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Krittiphong Pawagetsriri</h5>
+                        <p>Farmer</p>
+                        <p></p>
+                        <a href="https://www.facebook.com/Krittiphong.Petch"><i class="fa fa-facebook-square fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 mb-4 m-2 ml-2">
+                <div class="card" style="width: 18rem;background-color: #f4eee5;color: #7e5738;">
+                    <img src="/pic/Kwa.jpg" class="card-img-top img-fluid" style="width: 286px;height:286px">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Chanakan Pariyanapapong</h5>
+                        <p>Sell-Maketing</p>
+                        <a href="https://www.facebook.com/chanakan.pariyanapapong"><i class="fa fa-facebook-square fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

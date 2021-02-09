@@ -1,0 +1,99 @@
+﻿@model Ecommerce.Models.db.TblShippingDetail
+
+@{
+    TblShippingDetail address = @ViewBag.address;
+}
+
+<header>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <a asp-controller="Home" asp-action="Index"><img src="~/pic/Logo.png" width="100px" height="100px" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Meat">Meat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Vegetable">Vegetable</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="Index">Cart</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="navbar-right m-1">
+                <form asp-controller="Home" asp-action="SearchProduct">
+                    <input type="text" name="CheckSearch" />
+                    <button type="submit" class="btn btn-success">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+            </ul>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <h1 class="text-center">ใส่ที่อยู่ของท่าน</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <form asp-action="AddShipping">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input asp-for="ShippingDetailId" class="form-control" type="hidden" value="@address.ShippingDetailId" />
+                <input asp-for="OrderId" class="form-control" type="hidden" value="@address.OrderId" />
+                <input asp-for="MemberId" class="form-control" type="hidden" value="@address.MemberId" />
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label">ที่อยู่</label>
+                    <input asp-for="Address" class="form-control" value="@address.Address" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="City" class="control-label">อำเภอ/ตำบล</label>
+                    <input asp-for="City" class="form-control" value="@address.City" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="State" class="control-label">เขต</label>
+                    <input asp-for="State" class="form-control" value="@address.State" />
+                    <span asp-validation-for="State" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Country" class="control-label">จังหวัด</label>
+                    <input asp-for="Country" class="form-control" value="@address.Country" />
+                    <span asp-validation-for="Country" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ZipCode" class="control-label">รหัสไปรษณีย์</label>
+                    <input asp-for="ZipCode" class="form-control" value="@address.ZipCode" />
+                    <span asp-validation-for="ZipCode" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AmountPaid" class="control-label">จำนวนเงินที่ท่านต้องจ่าย</label>
+                    <input asp-for="AmountPaid" class="form-control" value="@address.AmountPaid" />
+                    <span asp-validation-for="AmountPaid" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PaymentType" class="control-label">ช่องทางการจ่ายเงิน</label>
+                    <input asp-for="PaymentType" class="form-control" value="@address.PaymentType" />
+                    <span asp-validation-for="PaymentType" class="text-danger"></span>
+                </div>
+                <div class="form-group text-center">
+                    <input type="submit" value="บันทึกที่อยู่" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

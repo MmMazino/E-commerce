@@ -1,0 +1,66 @@
+﻿@model Ecommerce.Models.Admin
+    <header>
+        <link rel="stylesheet" href="~/css/site.css" />
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a asp-controller="Home" asp-action="Index"><img src="~/pic/Logo.png" width="100px" height="100px" /></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Meat">Meat</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Vegetable">Vegetable</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="Index">Cart</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="navbar-right m-1">
+                    <form asp-controller="Home" asp-action="SearchProduct">
+                        <input type="text" name="CheckSearch" />
+                        <button type="submit" class="btn btn-success">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h1 class="text-center">Admin Login</h1>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-4">
+                <form asp-controller="Admin" asp-action="CheckAdmin" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Username" class="control-label"></label>
+                        <input asp-for="Username" class="form-control" placeholder="ชื่อผู้ใช้" name="Username" />
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input type="password" asp-for="Password" class="form-control" placeholder="รหัสผ่าน" name="Password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
